@@ -1,0 +1,9 @@
+Sort Binary Array in Linear Time
+
+Find a Duplicate Element in a Limited Range Array
+
+Find Maximum Length Sub-array with Given Sum
+
+Find the Largest Sub-array Formed by Consecutive Integers
+
+ Maximum Product of Two Integers in an Array
