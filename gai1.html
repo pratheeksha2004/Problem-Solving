@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Billing Pro Dashboard - Dark Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Dark Mode Pro Theme
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E0E0E0',     // Light Gray for text
+            sidebar: '#1F2937',     // Darker Gray-Blue for sidebar and card backgrounds
+            border: '#374151',      // Medium Gray for borders
+            background: '#111827',  // Very Dark Blue/Black for app background
+            accent: '#3B82F6',      // Bright Blue for accent
+            // Specific dark mode card/element backgrounds
+            surface: '#1F2937'      // Use for elements like header, footer, cards
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #111827; /* Match Tailwind background (background from config) */
+      color: #E0E0E0;           /* Match Tailwind primary text (primary from config) */
+    }
+
+    /* Dark Mode Specific Adjustments */
+    .text-gray-700 { color: #9CA3AF !important; } /* Lighter gray for secondary text */
+    .text-gray-800 { color: #D1D5DB !important; } /* Even lighter for sidebar text (if not using primary) */
+    .text-gray-500 { color: #6B7280 !important; } /* Footer text */
+
+    /* Ensure form inputs are styled for dark mode */
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        background-color: #2d3748; /* Slightly lighter than sidebar for contrast */
+        border-color: #374151;    /* Darker border (border from config) */
+        color: #E0E0E0;           /* Light text in input (primary from config) */
+    }
+    input::placeholder, textarea::placeholder {
+        color: #6B7280; /* Muted placeholder text */
+    }
+    input:focus, textarea:focus {
+        /* The focus:ring-accent should still work based on the accent color in config */
+    }
+
+    /* Button Adjustments for Dark Mode */
+    .bg-gray-200 { /* Reset button original light class */
+      background-color: #374151 !important; /* border color from config or a dark gray */
+      color: #E0E0E0 !important; /* primary text from config */
+    }
+    .hover\:bg-gray-300:hover { /* Reset button hover */
+      background-color: #4B5563 !important; /* A slightly lighter dark gray */
+    }
+
+    /* Shadow adjustments for dark mode */
+    .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3); } /* Darker shadow */
+    .shadow { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.3); }
+
+    /*
+      The following bg-surface will be used for header, footer, and the main content section's card.
+      Alternatively, if those elements should share the sidebar color, use bg-sidebar.
+      I'm using a dedicated 'surface' color for them.
+    */
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-surface border-b border-border p-4 flex justify-between items-center shadow-sm">
+    <h1 class="text-xl font-semibold text-primary">BillingPro</h1>
+    <nav class="space-x-6 text-sm text-gray-700"> 
+      <a href="#" class="hover:text-accent">Dashboard</a>
+      <a href="#" class="hover:text-accent">Clients</a>
+      <a href="#" class="hover:text-accent">Settings</a>
+    </nav>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="hidden md:block w-64 bg-sidebar text-primary p-6 border-r border-border">
+     
+      <h2 class="text-lg font-semibold mb-6">Menu</h2>
+      <ul class="space-y-3 text-sm">
+        <li><a href="#" class="block hover:text-accent">Overview</a></li>
+        <li><a href="#" class="block hover:text-accent">Create Invoice</a></li>
+        <li><a href="#" class="block hover:text-accent">All Invoices</a></li>
+        <li><a href="#" class="block hover:text-accent">Transactions</a></li>
+        <li><a href="#" class="block hover:text-accent">Reports</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+     
+      <section class="max-w-2xl mx-auto bg-surface p-6 rounded-md shadow border border-border">
+        <h2 class="text-xl font-semibold mb-6 text-primary">New Invoice</h2>
+
+        <form class="space-y-5">
+          <div>
+       
+            <label class="block text-sm font-medium mb-1 text-gray-700">Client Name</label>
+            <input type="text" placeholder="John Doe" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Invoice Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Date</label>
+            <input type="date" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Description</label>
+            <textarea rows="3" placeholder="Service details..." class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-accent text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+              Submit
+            </button>
+           
+            <button type="reset" class="bg-gray-200 text-gray-800 px-5 py-2 rounded hover:bg-gray-300 transition">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  
+  <footer class="bg-surface border-t border-border text-center p-4 text-sm text-gray-500"> 
+    © 2025 BillingPro Systems. All rights reserved.
+  </footer>
+</body>
+</html>

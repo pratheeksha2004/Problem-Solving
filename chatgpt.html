@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SaaS Billing - Indigo Theme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4F46E5',    // Indigo
+            secondary: '#9333EA',  // Purple
+            accent: '#38BDF8',     // Sky Blue
+            background: '#F8FAFC'  // Cool Light
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F8FAFC;
+    }
+    h1, h2, h3 {
+      font-family: 'Merriweather', serif;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-primary text-white p-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-heading">BlueBilling™ Dashboard</h1>
+    <nav class="space-x-4">
+      <a href="#" class="hover:text-accent">Dashboard</a>
+      <a href="#" class="hover:text-accent">Invoices</a>
+      <a href="#" class="hover:text-accent">Help</a>
+    </nav>
+  </header>
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-secondary text-white p-6 space-y-4 hidden md:block">
+      <h2 class="text-xl font-bold mb-6">Navigation</h2>
+      <nav class="space-y-3">
+        <a href="#" class="block hover:text-accent">Overview</a>
+        <a href="#" class="block hover:text-accent">Invoices</a>
+        <a href="#" class="block hover:text-accent">New Invoice</a>
+        <a href="#" class="block hover:text-accent">Transactions</a>
+        <a href="#" class="block hover:text-accent">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+        <h2 class="text-2xl font-heading mb-6">Create Invoice</h2>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block mb-1 font-semibold">Client Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full border border-gray-300 p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold">Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full border border-gray-300 p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold">Invoice Date</label>
+            <input type="date" class="w-full border border-gray-300 p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold">Description</label>
+            <textarea rows="3" placeholder="Work details or notes" class="w-full border border-gray-300 p-2 rounded"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-primary text-white px-5 py-2 rounded shadow hover:bg-indigo-700">
+              Submit Invoice
+            </button>
+            <button type="reset" class="bg-accent text-black px-5 py-2 rounded shadow hover:bg-sky-300">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center p-4">
+    <p>&copy; 2025 BlueBilling Inc. | All rights reserved.</p>
+  </footer>
+</body>
+</html>

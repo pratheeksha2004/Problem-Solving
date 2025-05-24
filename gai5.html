@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SaaS Billing - Serene Slate & Amber</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Theme: "Serene Slate & Amber"
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Dark sections
+            slatePrimary: '#1F2937',      // Deep, cool dark gray (for sidebar, header, footer bg)
+            slateText: '#E5E7EB',         // Light gray text for slate backgrounds
+            slateTextSecondary: '#9CA3AF',// Muted text for slate backgrounds
+            slateBorder: '#374151',       // Border for dark sections
+
+            // Light sections
+            ivoryPrimary: '#F9FAFB',      // Off-white/very light gray (for main content bg)
+            ivoryText: '#111827',         // Very dark gray/black for text on ivory
+            ivoryTextSecondary: '#6B7280',// Medium-dark gray for secondary text on ivory (Tailwind gray-500)
+            ivoryBorder: '#E5E7EB',       // Light gray border for light sections (Tailwind gray-200)
+            ivoryCard: '#FFFFFF',         // Pure white for cards
+
+            // Accent
+            amberAccent: '#F59E0B',       // Vibrant amber (Tailwind's amber-500)
+            amberAccentHover: '#D97706',  // Darker amber for hover (Tailwind's amber-600)
+
+            // Buttons (Reset button specifically, submit uses accent)
+            buttonResetText: '#374151',    // Text for reset button (on light bg) - Tailwind gray-700
+            buttonResetBg: '#E5E7EB',      // Background for reset button - Tailwind gray-200
+            buttonResetHoverBg: '#D1D5DB'  // Hover BG for reset button - Tailwind gray-300
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      /* Default font for body, can be overridden by Tailwind utilities */
+      font-family: theme('fontFamily.body');
+    }
+    /* Apply heading font to all heading tags */
+    h1, h2, h3, h4, h5, h6 {
+      font-family: theme('fontFamily.heading');
+    }
+
+    /* Input styling for light theme using theme colors */
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        background-color: theme('colors.ivoryCard');
+        border-color: theme('colors.ivoryBorder');
+        color: theme('colors.ivoryText');
+        border-width: 1px;
+    }
+    input::placeholder, textarea::placeholder {
+        color: theme('colors.ivoryTextSecondary');
+    }
+    /* Focus styles will be handled by Tailwind utility classes like focus:ring-amberAccent */
+  </style>
+</head>
+<body class="flex flex-col min-h-screen bg-ivoryPrimary text-ivoryText">
+
+  <!-- Header -->
+  <header class="bg-slatePrimary text-slateText p-4 shadow-md flex justify-between items-center border-b border-slateBorder">
+    <h1 class="text-2xl">BlueBilling™ Dashboard</h1> 
+    <nav class="space-x-4 text-sm">
+      <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Dashboard</a>
+      <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Invoices</a>
+      <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Help</a>
+    </nav>
+  </header>
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slatePrimary text-slateText p-6 space-y-4 hidden md:block border-r border-slateBorder">
+      <h2 class="text-xl font-bold mb-6">Navigation</h2> 
+      <nav class="space-y-3 text-sm">
+        <a href="#" class="block hover:text-amberAccent transition-colors duration-150">Overview</a>
+        <a href="#" class="block hover:text-amberAccent transition-colors duration-150">Invoices</a>
+        <a href="#" class="block hover:text-amberAccent transition-colors duration-150">New Invoice</a>
+        <a href="#" class="block hover:text-amberAccent transition-colors duration-150">Transactions</a>
+        <a href="#" class="block hover:text-amberAccent transition-colors duration-150">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-3xl mx-auto bg-ivoryCard p-6 rounded-lg shadow-lg border border-ivoryBorder">
+        <h2 class="text-2xl mb-6 text-ivoryText">Create Invoice</h2> 
+
+        <form class="space-y-6">
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-ivoryText">Client Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full p-3 rounded-md focus:ring-2 focus:ring-amberAccent focus:border-amberAccent" />
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-ivoryText">Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full p-3 rounded-md focus:ring-2 focus:ring-amberAccent focus:border-amberAccent" />
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-ivoryText">Invoice Date</label>
+            <input type="date" class="w-full p-3 rounded-md focus:ring-2 focus:ring-amberAccent focus:border-amberAccent" />
+          </div>
+
+          <div>
+            <label class="block mb-1 text-sm font-semibold text-ivoryText">Description</label>
+            <textarea rows="4" placeholder="Work details or notes..." class="w-full p-3 rounded-md focus:ring-2 focus:ring-amberAccent focus:border-amberAccent"></textarea>
+          </div>
+
+          <div class="flex gap-4 pt-2">
+            <button type="submit" class="bg-amberAccent text-ivoryText font-semibold px-6 py-3 rounded-md shadow hover:bg-amberAccentHover transition-colors duration-150">
+              Submit Invoice
+            </button>
+            <button type="reset" class="bg-buttonResetBg text-buttonResetText font-semibold px-6 py-3 rounded-md shadow hover:bg-buttonResetHoverBg transition-colors duration-150">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slatePrimary text-slateTextSecondary text-center p-6 text-sm border-t border-slateBorder">
+    <p>© 2025 BlueBilling Inc. | All rights reserved.</p>
+  </footer>
+</body>
+</html>

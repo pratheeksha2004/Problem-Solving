@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Billing Pro Dashboard - Earthy & Trustworthy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Theme 3: "Earthy & Trustworthy"
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4A3B33',     // Dark Brown for text
+            sidebar: '#F5F5DC',     // Beige for sidebar
+            border: '#D2B48C',      // Tan for borders
+            background: '#FAF3E0',  // Linen (very light warm off-white) for app background
+            accent: '#8FBC8F',      // Dark Sea Green for accent
+            surface: '#FFFAF0',     // FloralWhite for header, cards, footer
+            // Custom color for the reset button to fit the theme
+            buttonResetBg: '#EAE0D6', // A light, muted earthy tone
+            buttonResetHoverBg: '#DCD0C4' // Slightly darker for hover
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #FAF3E0; /* Match Tailwind 'background' color */
+    }
+
+    /*
+      Default text-gray-700 might be okay, but for better harmony with brown primary:
+      .text-gray-700 { color: #786A5F; }
+      .text-gray-500 { color: #A09286; }
+      For this example, we'll let Tailwind's defaults for gray try to work first,
+      but these could be overridden if needed.
+    */
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-surface border-b border-border p-4 flex justify-between items-center shadow-sm">
+    <h1 class="text-xl font-semibold text-primary">BillingPro</h1>
+    <nav class="space-x-6 text-sm text-gray-700">
+      <a href="#" class="hover:text-accent">Dashboard</a>
+      <a href="#" class="hover:text-accent">Clients</a>
+      <a href="#" class="hover:text-accent">Settings</a>
+    </nav>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    
+    <aside class="hidden md:block w-64 bg-sidebar text-primary p-6 border-r border-border">
+      <h2 class="text-lg font-semibold mb-6">Menu</h2> 
+      <ul class="space-y-3 text-sm">
+        <li><a href="#" class="block hover:text-accent">Overview</a></li>
+        <li><a href="#" class="block hover:text-accent">Create Invoice</a></li>
+        <li><a href="#" class="block hover:text-accent">All Invoices</a></li>
+        <li><a href="#" class="block hover:text-accent">Transactions</a></li>
+        <li><a href="#" class="block hover:text-accent">Reports</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-2xl mx-auto bg-surface p-6 rounded-md shadow border border-border">
+        <h2 class="text-xl font-semibold mb-6 text-primary">New Invoice</h2>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Client Name</label>
+            <input type="text" placeholder="John Doe" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent bg-white" />
+            
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Invoice Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent bg-white" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Date</label>
+            <input type="date" class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent bg-white" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1 text-gray-700">Description</label>
+            <textarea rows="3" placeholder="Service details..." class="w-full border border-border p-2 rounded focus:ring-2 focus:ring-accent bg-white"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-accent text-white px-5 py-2 rounded hover:opacity-90 transition">
+              Submit
+            </button>
+           
+            <button type="reset" class="bg-buttonResetBg text-primary px-5 py-2 rounded hover:bg-buttonResetHoverBg transition">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-surface border-t border-border text-center p-4 text-sm text-gray-500">
+    © 2025 BillingPro Systems. All rights reserved.
+  </footer>
+</body>
+</html>

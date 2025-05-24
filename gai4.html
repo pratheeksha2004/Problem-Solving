@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SaaS Billing - Graphite & Amber Theme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Theme 5: "Modern Graphite & Amber"
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1A202C',     // Very Dark Gray (Almost Black) for text
+            sidebar: '#F7FAFC',     // Very Light Gray (Off-White) for sidebar
+            border: '#E2E8F0',      // Standard Light Gray for borders
+            background: '#FFFFFF',  // Pure White for app background
+            accent: '#DD6B20',      // Rich Amber/Orange for accent
+            surface: '#EDF2F7',     // Slightly darker off-white for cards, header
+            // Custom for this theme
+            secondaryText: '#4A5568', // Medium Gray for less important text
+            buttonResetText: '#2D3748', // Darker gray for reset button text
+            buttonResetBg: '#E2E8F0',    // Using border color for reset bg
+            buttonResetHoverBg: '#CBD5E0' // A bit darker for hover
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', 'sans-serif'; /* Use body font from config */
+      background-color: #FFFFFF; /* Match Tailwind background */
+      /* color: #1A202C; */ /* Default text color, text-primary on body will handle this */
+    }
+    h1, h2, h3, h4, h5, h6 { /* Ensure all heading levels use the heading font */
+      font-family: 'Merriweather', serif; /* Use heading font from config */
+    }
+
+    /* Input styling for light theme - Tailwind defaults often work well */
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        background-color: #FFFFFF; /* White input background */
+        border-color: #E2E8F0;    /* border color from theme */
+        color: #1A202C;           /* primary text from theme */
+        border-width: 1px;
+    }
+    input::placeholder, textarea::placeholder {
+        color: #A0AEC0; /* A medium-light gray for placeholders */
+    }
+    input:focus, textarea:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        border-color: #DD6B20; /* accent color */
+        box-shadow: 0 0 0 2px rgba(221, 107, 32, 0.4); /* accent color with opacity */
+    }
+    /* Shadows are generally fine for light themes with Tailwind defaults */
+    /* .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); } */
+    /* .shadow { box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06); } */
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-surface text-primary p-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl">BlueBilling™ Dashboard</h1>
+    <nav class="space-x-4">
+      
+      <a href="#" class="text-secondaryText hover:text-accent">Dashboard</a>
+      <a href="#" class="text-secondaryText hover:text-accent">Invoices</a>
+      <a href="#" class="text-secondaryText hover:text-accent">Help</a>
+    </nav>
+  </header>
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-sidebar text-primary p-6 space-y-4 hidden md:block">
+     
+      <h2 class="text-xl font-bold mb-6">Navigation</h2>
+      <nav class="space-y-3">
+        <a href="#" class="block hover:text-accent">Overview</a>
+        <a href="#" class="block hover:text-accent">Invoices</a>
+        <a href="#" class="block hover:text-accent">New Invoice</a>
+        <a href="#" class="block hover:text-accent">Transactions</a>
+        <a href="#" class="block hover:text-accent">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-3xl mx-auto bg-white p-6 rounded shadow">
+        <h2 class="text-2xl mb-6">Create Invoice</h2>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Client Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Invoice Date</label>
+            <input type="date" class="w-full p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Description</label>
+            <textarea rows="3" placeholder="Work details or notes" class="w-full p-2 rounded"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-accent text-white px-5 py-2 rounded shadow hover:opacity-80 transition-opacity">
+              Submit Invoice
+            </button>
+            <button type="reset" class="bg-buttonResetBg text-buttonResetText px-5 py-2 rounded shadow hover:bg-buttonResetHoverBg transition-colors">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-surface text-secondaryText text-center p-4">
+    <p>© 2025 BlueBilling Inc. | All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Billing Pro Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E293B',
+            sidebar: '#334155',
+            border: '#CBD5E1',
+            background: '#F1F5F9',
+            accent: '#3B82F6'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F1F5F9;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-primary text-white p-4 flex justify-between items-center shadow-sm">
+    <h1 class="text-xl font-semibold">BillingPro</h1>
+    <nav class="space-x-6 text-sm">
+      <a href="#" class="hover:text-accent">Dashboard</a>
+      <a href="#" class="hover:text-accent">Clients</a>
+      <a href="#" class="hover:text-accent">Settings</a>
+    </nav>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="hidden md:block w-64 bg-sidebar text-white p-6">
+      <h2 class="text-lg font-semibold mb-6">Menu</h2>
+      <ul class="space-y-3 text-sm">
+        <li><a href="#" class="block hover:text-accent">Overview</a></li>
+        <li><a href="#" class="block hover:text-accent">Create Invoice</a></li>
+        <li><a href="#" class="block hover:text-accent">All Invoices</a></li>
+        <li><a href="#" class="block hover:text-accent">Transactions</a></li>
+        <li><a href="#" class="block hover:text-accent">Reports</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-2xl mx-auto bg-white p-6 rounded-md shadow border border-border">
+        <h2 class="text-xl font-semibold mb-6 text-primary">New Invoice</h2>
+
+        <form class="space-y-5">
+          <div>
+            <label class="block text-sm font-medium mb-1">Client Name</label>
+            <input type="text" placeholder="John Doe" class="w-full border border-border p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Invoice Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full border border-border p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Date</label>
+            <input type="date" class="w-full border border-border p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium mb-1">Description</label>
+            <textarea rows="3" placeholder="Service details..." class="w-full border border-border p-2 rounded"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-accent text-white px-5 py-2 rounded hover:bg-blue-600">
+              Submit
+            </button>
+            <button type="reset" class="bg-slate-200 text-black px-5 py-2 rounded hover:bg-slate-300">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white text-center p-4 text-sm">
+    &copy; 2025 BillingPro Systems. All rights reserved.
+  </footer>
+</body>
+</html>

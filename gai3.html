@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SaaS Billing - Deep Ocean Theme</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Theme 4: "Deep Ocean Professional"
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#E0F2FE',     // Light Cyan/Off-White for text (was Indigo)
+            sidebar: '#0369A1',     // Rich Sky Blue (new, replaces 'secondary' purple)
+            border: '#075985',      // Slightly darker Sky Blue for borders
+            background: '#082F49',  // Very Deep Navy/Cyan for app background (was F8FAFC)
+            accent: '#06B6D4',      // Bright Cyan for accents (was Sky Blue 38BDF8)
+            surface: '#0C4A6E',     // Deep Cyan-Blue for cards, header, footer (new)
+            // Custom for this theme
+            inputBg: '#075985',     // Input background
+            inputPlaceholder: '#38BDF8',// Brighter placeholder for contrast
+            buttonResetBg: '#075985', // Using inputBg for reset button background
+            buttonResetHoverBg: '#0369A1' // Using sidebar color for reset hover
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', 'sans-serif'; /* Use body font from config */
+      background-color: #082F49; /* Match Tailwind background */
+      /* color: #E0F2FE; */ /* Default text color, text-primary on body will handle this */
+    }
+    h1, h2, h3, h4, h5, h6 { /* Ensure all heading levels use the heading font */
+      font-family: 'Merriweather', serif; /* Use heading font from config */
+    }
+
+    /* Dark Theme Specific Adjustments */
+    /* These might override specific text-gray-xxx classes if you use them directly.
+       The provided HTML mainly uses semantic elements whose color will be inherited or directly set.
+    */
+    /* .text-gray-700 { color: #7DD3FC !important; } Example for less important text */
+    /* .text-gray-500 { color: #38BDF8 !important; } Example for footer-like text */
+
+    input[type="text"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        background-color: #075985; /* inputBg from theme */
+        border-color: #0369A1;    /* Using sidebar color or a slightly darker variant of inputBg */
+        color: #E0F2FE;           /* primary text from theme */
+        border-width: 1px;       /* Ensure border is visible */
+    }
+    input::placeholder, textarea::placeholder {
+        color: #38BDF8; /* inputPlaceholder from theme */
+    }
+    input:focus, textarea:focus {
+        /* Tailwind's focus:ring-accent should work, or define custom focus styles */
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+        border-color: #06B6D4; /* accent color */
+        box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.5); /* accent color with opacity */
+    }
+
+    /* Shadow adjustments for dark mode */
+    .shadow-md { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.3), 0 2px 4px -2px rgba(0,0,0,0.3); }
+    .shadow { box-shadow: 0 1px 3px 0 rgba(0,0,0,0.3), 0 1px 2px -1px rgba(0,0,0,0.3); }
+
+  </style>
+</head>
+<body class="flex flex-col min-h-screen text-primary bg-background">
+
+  <!-- Header -->
+  <header class="bg-surface text-primary p-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl">BlueBilling™ Dashboard</h1> {/* font-heading applied via CSS */}
+    <nav class="space-x-4">
+      <a href="#" class="hover:text-accent">Dashboard</a>
+      <a href="#" class="hover:text-accent">Invoices</a>
+      <a href="#" class="hover:text-accent">Help</a>
+    </nav>
+  </header>
+
+  <div class="flex flex-1">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-sidebar text-primary p-6 space-y-4 hidden md:block">
+      <h2 class="text-xl font-bold mb-6">Navigation</h2> 
+      <nav class="space-y-3">
+        <a href="#" class="block hover:text-accent">Overview</a>
+        <a href="#" class="block hover:text-accent">Invoices</a>
+        <a href="#" class="block hover:text-accent">New Invoice</a>
+        <a href="#" class="block hover:text-accent">Transactions</a>
+        <a href="#" class="block hover:text-accent">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8">
+      <section class="max-w-3xl mx-auto bg-surface p-6 rounded shadow">
+        <h2 class="text-2xl mb-6">Create Invoice</h2> 
+
+        <form class="space-y-5">
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Client Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full p-2 rounded" /> 
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Invoice Date</label>
+            <input type="date" class="w-full p-2 rounded" />
+          </div>
+
+          <div>
+            <label class="block mb-1 font-semibold text-primary">Description</label>
+            <textarea rows="3" placeholder="Work details or notes" class="w-full p-2 rounded"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-accent text-background px-5 py-2 rounded shadow hover:opacity-80 transition-opacity">
+          
+              Submit Invoice
+            </button>
+            <button type="reset" class="bg-buttonResetBg text-primary px-5 py-2 rounded shadow hover:bg-buttonResetHoverBg transition-colors">
+              Reset
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-surface text-primary text-center p-4">
+    <p>© 2025 BlueBilling Inc. | All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlueBilling™ Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Dark Theme Colors
+            slatePrimary: '#1F2937',
+            slateText: '#E5E7EB',
+            slateTextSecondary: '#9CA3AF',
+            slateBorder: '#374151',
+
+            // Light Theme Colors
+            ivoryPrimary: '#F9FAFB',
+            ivoryCard: '#FFFFFF',
+            ivoryText: '#111827',
+            ivoryTextSecondary: '#6B7280',
+            ivoryBorder: '#E5E7EB',
+
+            // Accent
+            amberAccent: '#F59E0B',
+            amberAccentHover: '#D97706',
+
+            // Button Reset
+            buttonResetText: '#374151',
+            buttonResetBg: '#E5E7EB',
+            buttonResetHoverBg: '#D1D5DB'
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            heading: ['Merriweather', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Merriweather, serif;
+    }
+  </style>
+</head>
+<body class="bg-ivoryPrimary text-ivoryText flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-slatePrimary text-slateText p-4 shadow-md border-b border-slateBorder">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">BlueBilling™</h1>
+      <nav class="space-x-4 text-sm">
+        <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Dashboard</a>
+        <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Invoices</a>
+        <a href="#" class="text-slateTextSecondary hover:text-amberAccent">Help</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <div class="flex flex-1">
+    
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slatePrimary text-slateText p-6 border-r border-slateBorder hidden lg:block">
+      <h2 class="text-xl font-bold mb-6">Navigation</h2>
+      <nav class="space-y-3 text-sm">
+        <a href="#" class="block hover:text-amberAccent">Overview</a>
+        <a href="#" class="block hover:text-amberAccent">Invoices</a>
+        <a href="#" class="block hover:text-amberAccent">New Invoice</a>
+        <a href="#" class="block hover:text-amberAccent">Transactions</a>
+        <a href="#" class="block hover:text-amberAccent">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <div class="max-w-3xl mx-auto bg-ivoryCard p-8 rounded-xl shadow-lg border border-ivoryBorder">
+        <h2 class="text-2xl font-bold mb-6">Create Invoice</h2>
+
+        <form class="space-y-6">
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-ivoryText">Client Name</label>
+            <input type="text" placeholder="Jane Smith" class="w-full p-3 rounded-md border border-ivoryBorder focus:ring-2 focus:ring-amberAccent focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-ivoryText">Amount (₹)</label>
+            <input type="number" placeholder="₹0.00" class="w-full p-3 rounded-md border border-ivoryBorder focus:ring-2 focus:ring-amberAccent focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-ivoryText">Invoice Date</label>
+            <input type="date" class="w-full p-3 rounded-md border border-ivoryBorder focus:ring-2 focus:ring-amberAccent focus:outline-none" />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-semibold text-ivoryText">Description</label>
+            <textarea rows="4" placeholder="Work details or notes..." class="w-full p-3 rounded-md border border-ivoryBorder focus:ring-2 focus:ring-amberAccent focus:outline-none"></textarea>
+          </div>
+
+          <div class="flex gap-4">
+            <button type="submit" class="bg-amberAccent text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-amberAccentHover transition">
+              Submit Invoice
+            </button>
+            <button type="reset" class="bg-buttonResetBg text-buttonResetText font-semibold px-6 py-3 rounded-md shadow hover:bg-buttonResetHoverBg transition">
+              Reset
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slatePrimary text-slateTextSecondary text-center p-4 border-t border-slateBorder text-sm">
+    © 2025 BlueBilling Inc. | All rights reserved.
+  </footer>
+</body>
+</html>
